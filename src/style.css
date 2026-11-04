@@ -53,3 +53,8 @@ footer{display:flex;flex-direction:column;gap:.3rem;text-align:center;font-size:
 #credit{position:fixed;right:.6rem;bottom:.5rem;z-index:6;font-size:.72rem;color:var(--navy);padding:.25rem .6rem;border-radius:99px;background:rgba(255,255,255,.7);backdrop-filter:blur(4px)}
 #credit a{color:inherit;font-weight:700}
 footer{padding-bottom:3.5rem}
+
+/* link to the official site */
+.official{display:inline-block;margin-top:.7rem;padding:.35rem .9rem;border-radius:99px;font-size:.82rem;font-weight:700;text-decoration:none;color:var(--navy);
+  background:rgba(255,255,255,.8);text-shadow:none;box-shadow:0 3px 10px rgba(20,60,120,.2);transition:transform .15s,background .15s}
+.official:hover,.official:focus-visible{transform:translateY(-2px);background:#fff;outline:none}

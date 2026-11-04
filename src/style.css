@@ -64,3 +64,9 @@ footer{padding-bottom:3.5rem}
 .closed .glyph{filter:drop-shadow(0 0 6px rgba(214,40,57,.35))}
 .closed.past .glyph{filter:brightness(0);opacity:.3}
 #ad-ikze img{height:40px;width:40px;padding:4px;background:rgba(255,255,255,.8)}
+
+/* all four author links in one row (2 per row on tablets, 1 on phones) */
+.ads{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem}
+.ad{max-width:none;flex:none;min-width:0;font-size:.8rem}
+@media (max-width:900px){.ads{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.ads{grid-template-columns:1fr}}

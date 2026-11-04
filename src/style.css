@@ -74,3 +74,6 @@ footer{padding-bottom:3.5rem}
 /* unofficial-site notice */
 #unofficial{display:flex;gap:.6rem;align-items:center;justify-content:center;text-align:center;padding:.6rem 1rem;font-size:.9rem;font-weight:600;line-height:1.35;
   color:var(--navy);background:#fff3c4;border-bottom:2px solid #e6a700}
+
+#official-row{text-align:center;padding:.6rem 1rem .5rem}
+#official-row .official{margin-top:0}

@@ -83,3 +83,6 @@ footer{padding-bottom:3.5rem}
 #official-row{padding:.7rem 1rem 0}
 header{padding-top:.3rem}
 header .kicker{margin-top:.6rem}
+
+#lights{overflow:hidden}
+#lights i{flex:none}

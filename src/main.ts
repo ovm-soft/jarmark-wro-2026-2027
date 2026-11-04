@@ -97,9 +97,12 @@ document.addEventListener("click", hide);
 // ---- christmas spirit: garland lights + snowfall ----
 function lights() {
   const cols = ["#ff4d4d", "#ffd24a", "#4dd2ff", "#7dff7d"];
-  $("lights").innerHTML = Array.from({ length: 48 }, (_, i) =>
+  const n = Math.max(8, Math.floor(innerWidth / 26)); // one bulb per ~26px, so they never get squeezed
+  $("lights").innerHTML = Array.from({ length: n }, (_, i) =>
     `<i style="--c:${cols[i % 4]};animation-delay:${(i % 5) * 0.35}s"></i>`).join("");
 }
+let lightsW = innerWidth;
+addEventListener("resize", () => { if (Math.abs(innerWidth - lightsW) > 40) { lightsW = innerWidth; lights(); } });
 function snow() {
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const c = $("snow") as HTMLCanvasElement, x = c.getContext("2d")!;

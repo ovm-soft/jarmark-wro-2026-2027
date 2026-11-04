@@ -30,6 +30,7 @@ export const isClosed = (iso: string) => ["2026-12-24", "2026-12-25", "2027-01-0
 /** Opening hours per organizer (wroclaw.pl, 27.10.2026). Default 10:00–21:00. */
 export function hoursFor(iso: string): string {
   if (isClosed(iso)) return "$closed";
+  if (iso === "2026-11-20") return "17:00–21:00";
   if (iso === "2026-12-26") return "13:00–21:00";
   if (iso === "2026-12-31") return "10:00–17:00 · $gastro 2:00";
   return "10:00–21:00";

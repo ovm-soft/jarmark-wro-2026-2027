@@ -70,3 +70,7 @@ footer{padding-bottom:3.5rem}
 .ad{max-width:none;flex:none;min-width:0;font-size:.8rem}
 @media (max-width:900px){.ads{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:480px){.ads{grid-template-columns:1fr}}
+
+/* unofficial-site notice */
+#unofficial{display:flex;gap:.6rem;align-items:center;justify-content:center;text-align:center;padding:.6rem 1rem;font-size:.9rem;font-weight:600;line-height:1.35;
+  color:var(--navy);background:#fff3c4;border-bottom:2px solid #e6a700}

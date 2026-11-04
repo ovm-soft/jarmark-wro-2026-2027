@@ -10,9 +10,8 @@ function initialLang(): Lang {
   const q = new URLSearchParams(location.search).get("lang");
   let saved: string | null = null;
   try { saved = localStorage.getItem("lang"); } catch { /* storage blocked */ }
-  const guess = navigator.language.slice(0, 2);
-  const pick = [q, saved, guess].find(l => l && (LANGS as string[]).includes(l));
-  return (pick as Lang) ?? "en";
+  const pick = [q, saved].find(l => l && (LANGS as string[]).includes(l));
+  return (pick as Lang) ?? "pl";
 }
 let lang: Lang = initialLang();
 

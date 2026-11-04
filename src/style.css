@@ -77,3 +77,9 @@ footer{padding-bottom:3.5rem}
 
 #official-row{text-align:center;padding:.6rem 1rem .5rem}
 #official-row .official{margin-top:0}
+
+/* new top order: lights, languages, notice, official link, header */
+#langs{padding:.8rem 1rem}
+#official-row{padding:.7rem 1rem 0}
+header{padding-top:.3rem}
+header .kicker{margin-top:.6rem}

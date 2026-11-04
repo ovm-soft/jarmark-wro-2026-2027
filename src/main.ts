@@ -1,5 +1,5 @@
 import { EVENTS, END, START, KIND_LABEL, hoursFor, isClosed } from "./data";
-import { DAYS, LANGS, LANG_BTN, fill, tr, type Lang } from "./i18n";
+import { DAYS, IKZE_URL, LANGS, LANG_BTN, fill, tr, type Lang } from "./i18n";
 
 const DAY = 86400000;
 const utc = (iso: string) => { const [y, m, d] = iso.split("-").map(Number); return Date.UTC(y, m - 1, d); };
@@ -38,6 +38,7 @@ function renderHeader(today: string) {
   $("legend").textContent = tr("legend", lang);
   $("note").textContent = tr("note", lang);
   document.documentElement.lang = lang;
+  ($("ad-ikze") as HTMLAnchorElement).href = IKZE_URL[lang];
   document.querySelectorAll<HTMLElement>("[data-i18n]").forEach(el => { el.textContent = tr(el.dataset.i18n!, lang); });
   if (t < s) {
     const n = Math.round((s - t) / DAY);

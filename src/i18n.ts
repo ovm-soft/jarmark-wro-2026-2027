@@ -54,6 +54,7 @@ const T: Record<string, Row> = {
   endDesc: ["dziękujemy za wspólne świętowanie – do zobaczenia za rok! 🎄", "дякуємо, що святкували разом – до зустрічі наступного року! 🎄", "thanks for celebrating with us – see you next year! 🎄", "merci d’avoir fêté avec nous – à l’année prochaine ! 🎄", "danke fürs Mitfeiern – bis nächstes Jahr! 🎄", "děkujeme, že jste slavili s námi – na shledanou za rok! 🎄"],
   credit: ["Wykonanie", "Виконання", "Made by", "Réalisation", "Umsetzung", "Provedení"],
   official: ["Oficjalna strona Jarmarku", "Офіційний сайт Ярмарку", "Official Market website", "Site officiel du marché", "Offizielle Website des Marktes", "Oficiální web trhů"],
+  my_ad_ikze: ["Kalkulator IKZE", "Калькулятор IKZE", "IKZE Calculator", "Calculateur IKZE", "IKZE-Rechner", "Kalkulator IKZE"],
   ads_title: ["Od autora", "Від автора", "From the author", "De l’auteur", "Vom Autor", "Od autora"],
   my_ad_look_n_trace: ["Rysowanie po konturze z użyciem kamery", "Малювання за контуром за допомогою камери", "Tracing over contours using the camera", "Dessin sur les contours à l’aide de la caméra", "Zeichnen nach Kontur mithilfe der Kamera", "Kreslení podle obrysu pomocí kamery"],
   my_ad_pl_guide: ["Wrocław i Polska – Przewodnik po Życiu", "Провідник по життю у Вроцлаві та Польщі", "Wrocław & Poland Life Guide", "Guide de la vie à Wrocław et en Pologne", "Life-Guide für Breslau und Polen", "Průvodce životem ve Vratislavi a Polsku"],
@@ -63,3 +64,9 @@ const T: Record<string, Row> = {
 export const tr = (key: string, lang: Lang) => T[key]?.[LANGS.indexOf(lang)] ?? key;
 /** Replaces every $key in a string with its translation; other text (names) stays as is. */
 export const fill = (s: string, lang: Lang) => s.replace(/\$(\w+)/g, (_, k: string) => tr(k, lang));
+
+/** IKZE calculator page per language (Czech uses the Polish version). */
+export const IKZE_URL: Record<Lang, string> = {
+  pl: "https://ovm-soft.github.io/ikze/pl", cs: "https://ovm-soft.github.io/ikze/pl", uk: "https://ovm-soft.github.io/ikze/uk",
+  en: "https://ovm-soft.github.io/ikze/en", fr: "https://ovm-soft.github.io/ikze/fr", de: "https://ovm-soft.github.io/ikze/de",
+};

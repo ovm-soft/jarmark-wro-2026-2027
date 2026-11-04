@@ -30,19 +30,18 @@ let badge = "", tx = 70;
 try {
   const r = await fetch("https://tmaps.one/wp-content/uploads/2026/10/threads-logo-black-scaled.png");
   if (!r.ok) throw new Error(`HTTP ${r.status}`);
-  const png = await sharp(Buffer.from(await r.arrayBuffer())).resize(52, 52, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } }).png().toBuffer();
-  badge = `<circle cx="104" cy="66" r="36" fill="#fff"/><image x="78" y="40" width="52" height="52" href="data:image/png;base64,${png.toString("base64")}"/>`;
-  tx = 158;
+  const png = await sharp(Buffer.from(await r.arrayBuffer())).resize(40, 40, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } }).png().toBuffer();
+  badge = `<circle cx="96" cy="58" r="28" fill="#fff"/><image x="76" y="38" width="40" height="40" href="data:image/png;base64,${png.toString("base64")}"/>`;
+  tx = 140;
 } catch (e) { console.warn("Threads icon unavailable, using text only:", e.message); }
 const F = `font-family="DejaVu Sans, Arial, Helvetica, sans-serif" font-weight="700"`;
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
   <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3d7cc2"/><stop offset="1" stop-color="#a9d3f3"/></linearGradient></defs>
   <rect width="1200" height="630" fill="url(#g)"/>${flakes}${tree}
-  ${badge}<text x="${tx}" y="82" ${F} font-size="48" fill="#fff">@pl.guide</text>
-  <text x="70" y="160" ${F} font-size="30" fill="#fff" letter-spacing="3">JARMARK BOŻONARODZENIOWY · WROCŁAW</text>
+  ${badge}<text x="${tx}" y="70" ${F} font-size="34" fill="#fff">@pl.guide<tspan font-size="26" font-weight="400" dx="16"> · nieoficjalna strona</tspan></text>
+  <text x="70" y="135" ${F} font-size="30" fill="#fff" letter-spacing="3">JARMARK BOŻONARODZENIOWY · WROCŁAW</text>
   <text x="64" y="${190 + size * 0.75}" ${F} font-size="${size}" fill="#ffd24a" stroke="#b07a00" stroke-width="3">${big}</text>
-  <text x="70" y="${190 + size * 0.75 + 80}" ${F} font-size="58" fill="#fff">${line}</text>
-  <text x="70" y="590" ${F} font-size="30" fill="#12335f">nieoficjalna strona</text></svg>`;
+  <text x="70" y="${190 + size * 0.75 + 80}" ${F} font-size="58" fill="#fff">${line}</text></svg>`;
 
 await sharp(Buffer.from(svg)).png().toFile("public/og-image.png");
 const html = readFileSync("index.html", "utf8").replace(/og-image\.png\?v=[^"]*/g, `og-image.png?v=${today}`);

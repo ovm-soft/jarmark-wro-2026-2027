@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kalendarz Jarmarku Bożonarodzeniowego – Wrocław 2026 | PL Guide</title>
+  <title>Jarmark Bożonarodzeniowy Wrocław 2026 | PL Guide</title>
   <link rel="stylesheet" href="/src/style.css" />
 </head>
 <body>
+  <canvas id="snow" aria-hidden="true"></canvas>
+  <div id="lights" aria-hidden="true"></div>
   <header>
-    <p class="kicker">Jarmark Bożonarodzeniowy · Wrocław</p>
+    <nav id="langs" aria-label="Language"></nav>
+    <p class="kicker" id="kicker"></p>
     <div id="counter" aria-live="polite"></div>
-    <p class="sub">20 listopada 2026 – 7 stycznia 2027</p>
+    <p class="sub" id="sub"></p>
   </header>
   <main id="grid"></main>
-  <footer>
-    <span>★ ikona = dzień z programem · ✨ najedź / dotknij, by zobaczyć szczegóły</span>
-    <span>Godziny i program wg organizatora – sprawdzaj aktualizacje. · PL Guide</span>
-  </footer>
+  <footer><span id="legend"></span><span id="note"></span><span>PL Guide</span></footer>
   <div id="tip" role="tooltip" hidden></div>
   <script type="module" src="/src/main.ts"></script>
 </body>

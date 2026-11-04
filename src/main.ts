@@ -35,6 +35,7 @@ function renderHeader(today: string) {
   $("legend").textContent = tr("legend", lang);
   $("note").textContent = tr("note", lang);
   document.documentElement.lang = lang;
+  document.querySelectorAll<HTMLElement>("[data-i18n]").forEach(el => { el.textContent = tr(el.dataset.i18n!, lang); });
   if (t < s) {
     const n = Math.round((s - t) / DAY);
     const w = DAYS[lang][new Intl.PluralRules(lang).select(n)] ?? DAYS[lang].other;

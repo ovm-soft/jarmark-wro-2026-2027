@@ -1,6 +1,6 @@
 export type Lang = "pl" | "uk" | "en" | "fr" | "de" | "cs";
 export const LANGS: Lang[] = ["pl", "uk", "en", "fr", "de", "cs"];
-export const LANG_BTN: Record<Lang, string> = { pl: "PL", uk: "UA", en: "EN", fr: "FR", de: "DE", cs: "CS" };
+export const LANG_BTN: Record<Lang, string> = { pl: "PL", uk: "UA", en: "EN", fr: "FR", de: "DE", cs: "CZ" };
 type Row = [string, string, string, string, string, string]; // pl, uk, en, fr, de, cs
 
 export const DAYS: Record<Lang, Record<string, string>> = {

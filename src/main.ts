@@ -7,7 +7,7 @@ const todayIso = () => new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Wars
 const $ = (id: string) => document.getElementById(id)!;
 
 function initialLang(): Lang {
-  const q = new URLSearchParams(location.search).get("lang");
+  const q = new URLSearchParams(location.search).get("lang")?.toLowerCase().replace("cz", "cs") ?? null; // ?lang=cz also works
   let saved: string | null = null;
   try { saved = localStorage.getItem("lang"); } catch { /* storage blocked */ }
   const pick = [q, saved].find(l => l && (LANGS as string[]).includes(l));

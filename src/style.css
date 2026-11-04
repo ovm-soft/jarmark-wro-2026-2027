@@ -58,3 +58,8 @@ footer{padding-bottom:3.5rem}
 .official{display:inline-block;margin-top:.7rem;padding:.35rem .9rem;border-radius:99px;font-size:.82rem;font-weight:700;text-decoration:none;color:var(--navy);
   background:rgba(255,255,255,.8);text-shadow:none;box-shadow:0 3px 10px rgba(20,60,120,.2);transition:transform .15s,background .15s}
 .official:hover,.official:focus-visible{transform:translateY(-2px);background:#fff;outline:none}
+
+/* closed days */
+.dim .g{fill:#6b8f7a}.dim .star{animation:none;fill:#c9ccd1}.dim .o{animation:none;fill:#9aa8b5}
+.closed .glyph{filter:drop-shadow(0 0 6px rgba(214,40,57,.35))}
+.closed.past .glyph{filter:brightness(0);opacity:.3}

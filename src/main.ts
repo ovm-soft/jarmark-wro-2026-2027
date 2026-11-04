@@ -26,6 +26,10 @@ const tree = `<svg class="tree" viewBox="0 0 60 80" aria-hidden="true">
   <polygon class="star" points="30,2 32,8 38,8 33,12 35,18 30,14 25,18 27,12 22,8 28,8"/>
   <ellipse class="s" cx="30" cy="77" rx="26" ry="3"/></svg>`;
 
+// closed days: the same tree with its lights off and a red "no entry" badge
+const closedTree = tree.replace('class="tree"', 'class="tree dim"').replace("</svg>",
+  `<circle cx="43" cy="58" r="14" fill="#d62839" stroke="#fff" stroke-width="3"/><rect x="35" y="55.500" width="16" height="5" rx="2" fill="#fff"/></svg>`);
+
 function renderHeader(today: string) {
   const t = utc(today), s = utc(START), e = utc(END), total = Math.round((e - s) / DAY) + 1;
   const fmt = new Intl.DateTimeFormat(lang, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
@@ -54,9 +58,9 @@ function renderGrid(today: string) {
   for (let ms = utc(START); ms <= utc(END); ms += DAY) {
     const d = new Date(ms), iso = d.toISOString().slice(0, 10), ev = EVENTS[iso];
     const cls = ["day", ms < t ? "past" : "", ms === t ? "today" : "", ev ? "special " + ev.kind : "", isClosed(iso) ? "closed" : ""].join(" ");
-    html += `<button class="${cls}" data-iso="${iso}" ${ev ? "" : 'tabindex="-1"'} aria-label="${d.getUTCDate()} ${mon.format(d)}${ev ? ", " + fill(ev.title, lang) : ""}">
+    html += `<button class="${cls}" data-iso="${iso}" ${ev ? "" : 'tabindex="-1"'} aria-label="${d.getUTCDate()} ${mon.format(d)}${ev ? ", " + fill(ev.title, lang) : isClosed(iso) ? ", " + tr("closed", lang) : ""}">
       <span class="date"><b>${d.getUTCDate()}</b> ${mon.format(d)} <i>${wd.format(d)}</i></span>
-      <span class="glyph">${ev ? `<span class="icon">${ev.icon}</span>` : tree}</span>
+      <span class="glyph">${ev ? `<span class="icon">${ev.icon}</span>` : isClosed(iso) ? closedTree : tree}</span>
       <span class="hours">${fill(hoursFor(iso), lang)}</span></button>`;
   }
   $("grid").innerHTML = html;
